@@ -1,0 +1,37 @@
+
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.js"></script>
+</head>
+
+<style>
+
+.editor {
+  height: 350px !important;
+  overflow: auto;
+  border: 1px solid #D9DEE0;
+  border-radius: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+</style>
+
+<body>
+    <div style="width:80%; margin: auto; padding: 20px;">
+        <h1>Text Editor</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <strong> Title : </strong> {{form.title}}
+            <br>
+            <br>
+
+            <strong>Description : </strong> {{form.description}}
+            <br>
+            <br>
+
+            <trix-editor input="{{form.description.auto_id}}" class="editor"></trix-editor>
+        </form>
+    </div>
+</body>
+</html>
